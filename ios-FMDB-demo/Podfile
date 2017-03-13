@@ -1,0 +1,17 @@
+#platform :ios, '9.0'
+use_frameworks!
+
+def install_pods
+  pod 'FMDB', '2.6.2'
+end
+
+target 'ios-FMDB-demo' do
+  install_pods
+  # Pods for ios-FMDB-demo
+
+  target 'ios-FMDB-demoTests' do
+    install_pods
+    # Pods for testing
+  end
+
+end

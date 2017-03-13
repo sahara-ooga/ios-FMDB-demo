@@ -1,0 +1,6 @@
+framework module Pods_ios_FMDB_demo {
+  umbrella header "Pods-ios-FMDB-demo-umbrella.h"
+
+  export *
+  module * { export * }
+}
