@@ -22,7 +22,7 @@ final class ViewController: UIViewController {
         self.delete()
     }
     
-    /// StarWarsPeopleテーブル作成実行
+    /// StarWarsPeopleテーブルを作成する
     private func create() {
         let success = starWarsPeopleDao.createTable()
         if success {
@@ -32,7 +32,7 @@ final class ViewController: UIViewController {
         }
     }
     
-    /// StarWarsPeopleテーブルに新規レコード1件追加実行
+    /// StarWarsPeopleテーブルに新規レコードを1件追加する
     private func insert() {
         let swPeopleDto = StarWarsPeopleDto()
         swPeopleDto.name = "Darth Vader"
@@ -50,7 +50,7 @@ final class ViewController: UIViewController {
         }
     }
     
-    /// StarWarsPeopleテーブルに新規レコード複数件追加実行
+    /// StarWarsPeopleテーブルに新規レコードを複数件追加する
     private func insertUsingTransaction() {
         
         var swPeopleDtos: [StarWarsPeopleDto] = []

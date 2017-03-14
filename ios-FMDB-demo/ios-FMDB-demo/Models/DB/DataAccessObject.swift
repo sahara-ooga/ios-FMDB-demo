@@ -10,7 +10,7 @@ import Foundation
 import FMDB
 
 protocol BaseDao {
-    var baseDao: DataAccessObject {get}
+    var baseDao: DataAccessObject { get }
 }
 
 final class DataAccessObject: NSObject {
@@ -23,21 +23,21 @@ final class DataAccessObject: NSObject {
     }
     
     func dbOpen() -> Bool {
-        let isOpen = db.open()
+        let isOpened = db.open()
         
-        if !isOpen {
+        if !isOpened {
             fatalError("Failed to open database.")
         }
-        return isOpen
+        return isOpened
     }
     
     func dbClose() -> Bool {
-        let isClose = db.close()
+        let isClosed = db.close()
         
-        if !isClose {
+        if !isClosed {
             fatalError("Failed to close database.")
         }
-        return isClose
+        return isClosed
     }
     
     func beginTransaction() -> Bool {

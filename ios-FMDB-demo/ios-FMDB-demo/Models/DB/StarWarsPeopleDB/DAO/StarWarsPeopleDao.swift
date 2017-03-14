@@ -13,7 +13,7 @@ final class StarWarsPeopleDao: NSObject {
     
     // MARK:- Create Table
     
-    /// StarWarsPeopleテーブル作成
+    /// StarWarsPeopleテーブルが存在しなければ、作成する
     func createTable() -> Bool {
         let sql = "CREATE TABLE IF NOT EXISTS StarWarsPeople (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, height INTEGER, mass INTEGER, birth_year TEXT, gender TEXT)"
         
@@ -26,7 +26,7 @@ final class StarWarsPeopleDao: NSObject {
     
     // MARK:- INSERT
     
-    /// StarWarsPeopleテーブルにレコードを追加
+    /// StarWarsPeopleテーブルにレコードを追加する
     func insert(swPeopleDto: StarWarsPeopleDto) -> Bool {
         let sql = "INSERT INTO StarWarsPeople(name, height, mass, birth_year, gender) VALUES(?, ?, ?, ?, ?)"
         let swPeople: [Any] = [swPeopleDto.name,
@@ -40,7 +40,7 @@ final class StarWarsPeopleDao: NSObject {
         return executeSQL
     }
     
-    /// トランザクションを使用してStarWarsPeopleテーブルに複数件レコードを追加
+    /// トランザクションを使用してStarWarsPeopleテーブルに複数件レコードを追加する
     func insert(swPeopleDtos: [StarWarsPeopleDto]) -> Bool {
         let sql = "INSERT INTO StarWarsPeople(name, height, mass, birth_year, gender) VALUES(?, ?, ?, ?, ?)"
         var swPeopleArray: Array<Any> = []
@@ -77,7 +77,7 @@ final class StarWarsPeopleDao: NSObject {
     
     // MARK:- SELECT
     
-    /// StarWarsPeopleテーブルのレコードを全件取得
+    /// StarWarsPeopleテーブルのレコードを全件取得する
     func selectAll() -> [StarWarsPeopleDto]? {
         let sql = "SELECT * FROM StarWarsPeople"
         
