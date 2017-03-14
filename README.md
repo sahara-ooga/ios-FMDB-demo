@@ -4,7 +4,7 @@ iOS FMDB2.6.2を利用したサンプル
 ## 1. PodFile
 
 ```
-  pod 'FMDB', '2.6.2'
+pod 'FMDB', '2.6.2'
 ```
 
 ## 2. import する
