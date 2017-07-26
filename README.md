@@ -14,7 +14,9 @@ import FMDB
 ## 3 使い方
 ### 3.1 FMDatabaseクラスのインスタンスを生成
 ```swift
-let dbPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last!.appendingPathComponent("foo.db")
+let dbPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,
+ 	.userDomainMask, 
+ 	true).last!.appendingPathComponent("foo.db")
 var db: FMDatabase(path: dbPath)
 
 ```
@@ -45,11 +47,19 @@ func dbClose() -> Bool {
 ```swift
 /// StarWarsPeopleテーブルが存在しなければ、作成する
 func createTable() -> Bool {
-    let sql = "CREATE TABLE IF NOT EXISTS StarWarsPeople (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, height INTEGER, mass INTEGER, birth_year TEXT, gender TEXT)"
+    let sql = "CREATE TABLE IF NOT EXISTS StarWarsPeople (id INTEGER PRIMARY KEY AUTOINCREMENT, 
+    name TEXT, 
+    height INTEGER, 
+    mass INTEGER, 
+    birth_year TEXT, 
+    gender TEXT)"
     
     _ = baseDao.dbOpen()
+    
     // SQL実行
-    let executeSQL = baseDao.db.executeUpdate(sql, withArgumentsIn: nil)
+    let executeSQL = baseDao.db.executeUpdate(sql, 
+    withArgumentsIn: nil)
+    
     _ = baseDao.dbClose()
         
     return executeSQL
@@ -61,7 +71,8 @@ func createTable() -> Bool {
 ```swift
 /// StarWarsPeopleテーブルにレコードを追加する
 func insert(swPeopleDto: StarWarsPeopleDto) -> Bool {
-    let sql = "INSERT INTO StarWarsPeople(name, height, mass, birth_year, gender) VALUES(?, ?, ?, ?, ?)"
+    let sql = "INSERT INTO StarWarsPeople(name, height, mass, birth_year, gender) 
+    							VALUES(?, ?, ?, ?, ?)"
     
     // SQLの?の箇所に入れる要素の配列
     let swPeople: [Any] = [swPeopleDto.name,
