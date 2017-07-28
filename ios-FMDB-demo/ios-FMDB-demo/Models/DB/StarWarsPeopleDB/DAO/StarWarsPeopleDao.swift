@@ -125,6 +125,16 @@ final class StarWarsPeopleDao: NSObject {
         _ = baseDao.dbClose()
         return executeSQL
     }
+    
+    func deleteAll() -> Bool {
+        let sql = "DELETE FROM StarWarsPeople"
+        
+        _ = baseDao.dbOpen()
+        let executeSQL = baseDao.db.executeStatements(sql)
+        _ = baseDao.dbClose()
+        
+        return executeSQL
+    }
 }
 
 // MARK:- BaseDao

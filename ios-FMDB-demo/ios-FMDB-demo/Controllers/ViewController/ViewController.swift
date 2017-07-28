@@ -20,6 +20,7 @@ final class ViewController: UIViewController {
         self.insertUsingTransaction()
         self.update()
         self.delete()
+        self.deleteAll()
     }
     
     /// StarWarsPeopleテーブルを作成する
@@ -120,6 +121,12 @@ final class ViewController: UIViewController {
             selectAll.forEach {
                 print("|\($0.id)|\($0.name)|\($0.height)|\($0.mass)|\($0.birth_year)|\($0.gender)|")
             }
+        }
+    }
+    
+    private func deleteAll(){
+        if starWarsPeopleDao.deleteAll(){
+            print("Deleted All record.")
         }
     }
 }
