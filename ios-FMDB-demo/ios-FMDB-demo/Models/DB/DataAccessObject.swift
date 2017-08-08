@@ -14,7 +14,9 @@ protocol BaseDao {
 }
 
 final class DataAccessObject: NSObject {
-    let dbPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last!.appendingPathComponent("sw.db")
+    let dbPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,
+                                                     .userDomainMask,
+                                                     true).last!.appendingPathComponent("sw.db")
     
     var db: FMDatabase
     
